@@ -10,3 +10,9 @@ The set of decisions that define the proposed architectural style are the follow
 - The application must be implemented as a hybrid app ( IONIC !!! )
 - Restful API implemented using nodeJS and express
 - The figure below shows the views and actions to develop
+
+
+
+Funciona todo
+
+Noelia Carrillo

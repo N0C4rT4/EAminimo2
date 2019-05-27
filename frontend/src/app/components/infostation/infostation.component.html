@@ -1,0 +1,79 @@
+<ion-header no border>
+    <ion-toolbar>
+        <ion-title style="font-weight: Tw Cen MT ">
+            Back to List of Stations
+        </ion-title>
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="home"></ion-back-button>
+
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content>
+    <div class="limiter">
+
+
+        <br>
+        <!--Tittle-->
+        <ion-title *ngIf="Station" class="title">Station: {{Station.name}}</ion-title>
+        <br>
+
+        <ion-list-header *ngIf="Station.bikes">
+            <ion-label class="list_titles" style="padding-left: 15px">Bike</ion-label>
+            <ion-label class="list_titles">Kms</ion-label>
+            <ion-label class="list_titles">Description</ion-label>
+            <ion-label></ion-label>
+        </ion-list-header>
+
+        <ion-label *ngIf="Station.bikes==null" class="list_titles">No hay bicis en esta estacion</ion-label>
+
+        <ion-list *ngIf="Station.bikes" id="menu">
+            <ion-item class="list_items" *ngFor="let bike of bikes">
+
+                <ion-label style="word-spacing: normal">{{bike.name}}</ion-label>
+                <ion-label>{{bike.distance}}</ion-label>
+                <ion-label style="word-spacing: normal">{{bike.description}} </ion-label>
+
+                <ion-button type="button" color="danger" (click)="botoLlista(bike._id)">
+                    <ion-icon slot="icon-only" name="trash"></ion-icon>
+                </ion-button>
+
+            </ion-item>
+        </ion-list>
+
+        <ion-title *ngIf="Station" class="title">Bicis libres:</ion-title>
+
+        <ion-list-header *ngIf="llistaUnBikes">
+            <ion-label class="list_titles" style="padding-left: 15px">Bike</ion-label>
+            <ion-label class="list_titles">Kms</ion-label>
+            <ion-label class="list_titles">Description</ion-label>
+            <ion-label></ion-label>
+        </ion-list-header>
+
+        <ion-list *ngIf="llistaUnBikes" id="menu">
+            <ion-item class="list_items" *ngFor="let element of llistaUnBikes">
+
+
+
+                <ion-label style="word-spacing: normal">{{element.name}}</ion-label>
+                <ion-label>{{element.distance}}</ion-label>
+                <ion-label style="word-spacing: normal">{{element.description}}</ion-label>
+
+                <ion-button type="button" (click)="botoLlistaUnBikes(element._id)">
+                    <ion-icon slot="icon-only" name="add"></ion-icon>
+
+                </ion-button>
+
+
+            </ion-item>
+        </ion-list>
+
+    </div>
+
+
+
+
+</ion-content>

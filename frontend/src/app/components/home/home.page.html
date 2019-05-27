@@ -1,0 +1,75 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>
+            Welcome
+        </ion-title>
+    </ion-toolbar>
+    <ion-button routerLink="/add_station" routerDirection="root" type="submit" color="success" shape="round">
+        Add Station
+    </ion-button>
+
+    <ion-button (click)="onClick()" type="submit" color="tertiary" shape="round">Save</ion-button>
+    <ion-button class="list-buttons" type="submit" color="warning" shape="round" (click)="ordenarStation()">Ordernar</ion-button>
+    <ion-searchbar color="dark" (ionChange)="buscar($event)"></ion-searchbar>
+</ion-header>
+
+<ion-content>
+    <div class="container">
+        <div>
+            <br>
+            <span>List of Station</span>
+            <br>
+
+            <ion-list-header *ngIf="lista">
+                <ion-label class="list_titles" style="padding-left: 15px">Station</ion-label>
+                <ion-label class="list_titles ">State</ion-label>
+                <ion-label class="list_titles">Description</ion-label>
+                <ion-label></ion-label>
+            </ion-list-header>
+
+
+            <ion-list *ngIf="lista" id="menu">
+
+
+                <ion-reorder-group [disabled]="false" (ionItemReorder)="reorder( $event ) ">
+                    <ion-item class="list_items" *ngFor="let element of lista | filtro:textoBuscar ">
+                        <!-- | filtro:textoBuscar -->
+
+                        <ion-label style="word-spacing: normal ">{{element.name}}</ion-label>
+                        <ion-label style="font-weight: bold;" *ngIf="element.state==true">Available</ion-label>
+                        <ion-label style="font-weight: bold;" *ngIf="element.state==false">NA</ion-label>
+                        <ion-label style="word-spacing: normal">{{element.description}}</ion-label>
+
+                        <ion-reorder slot="end">
+
+                        </ion-reorder>
+                        <ion-button *ngIf="lista" type="button" (click)="botoLlista(element._id)" color="tertiary">
+                            <ion-icon slot="icon-only" name="bicycle"></ion-icon>
+                        </ion-button>
+                    </ion-item>
+                </ion-reorder-group>
+
+
+
+
+
+
+
+                <!-- <button class="btn btn-info btn-block" [routerLink]="['add_subject']"><i class="fa fa-plus"></i>&nbsp;Add new station </button> -->
+
+            </ion-list>
+
+
+        </div>
+
+
+
+
+    </div>
+
+
+
+
+
+
+</ion-content>

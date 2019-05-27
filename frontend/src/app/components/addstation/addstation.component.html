@@ -1,0 +1,83 @@
+<ion-content>
+    <ion-card>
+        <ion-card-header>
+
+            <ion-card-title style="start">Add Station</ion-card-title>
+
+        </ion-card-header>
+
+        <ion-card-content>
+            Introduce los todos los datos de la estacion
+        </ion-card-content>
+    </ion-card>
+
+    <form [formGroup]="addstationForm" (ngSubmit)="addStation ()">
+
+        <ion-grid fixed>
+            <form (ngSumit)="addstationForm" (formGruop)="addStation()">
+                <ion-row>
+                    <ion-col>
+
+                        <ion-list>
+
+                            <ion-item>
+                                <ion-label>name station </ion-label>
+
+                                <ion-input name="name" type="text" class="form-control" formControlName="name"></ion-input>
+                                <div class="alert alert-danger" *ngIf="addstationForm.get('name').hasError(validation.type) && (addstationForm.get('name').dirty || addstationForm.get('name').touched)"></div>
+                            </ion-item>
+
+                            <ion-item>
+                                <ion-label>state </ion-label>
+
+                                <ion-input name="state" type="text" class="form-control" formControlName="state"></ion-input>
+                                <div class="alert alert-danger" *ngIf="addstationForm.get('state').hasError(validation.type) && (addstationForm.get('state').dirty || addstationForm.get('state').touched)"></div>
+                            </ion-item>
+
+                            <ion-item>
+                                <ion-label>description </ion-label>
+                                <ion-input name="description" type="text" class="form-control" formControlName="name"></ion-input>
+                                <div class="alert alert-danger" *ngIf="addstationForm.get('description').hasError(validation.type) && (addstationForm.get('description').dirty || addstationForm.get('description').touched)"></div>
+                            </ion-item>
+
+
+
+                        </ion-list>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col>
+                        <ion-button type="submit" color="tertiary" shape="round">
+                            Add Station
+                        </ion-button>
+                        <ion-button routerLink="/home" type=" submit " color="tertiary " shape="round ">
+                            Cancel
+                        </ion-button>
+                    </ion-col>
+                </ion-row>
+
+
+            </form>
+
+
+        </ion-grid>
+
+
+
+
+
+
+        <!-- <ion-item>
+                            <ion-label>name station </ion-label>
+                            <ion-input [(ngModel)]="name" type="text"></ion-input>
+                        </ion-item>
+
+                        <ion-item>
+                            <ion-label>state </ion-label>
+                            <ion-input [(ngModel)]="state" type="text"></ion-input>
+                        </ion-item>
+
+                        <ion-item>
+                            <ion-label>description </ion-label>
+                            <ion-input [(ngModel)]="name" type="text"></ion-input>
+                        </ion-item> -->
